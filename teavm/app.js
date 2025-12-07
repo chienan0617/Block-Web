@@ -21920,7 +21920,7 @@ dcgbss_TileController_hasTile = $pos => {
 dcgbss_TileController_init = $this => {
     let $i, var$2, var$3, var$4;
     $i = 0;
-    while ($i < 5) {
+    while ($i < 40) {
         var$2 = cceu_Mth_nextInt(8);
         var$3 = cceu_Mth_nextInt(8);
         var$4 = dcgbsf_TileInfo__init_(dcgbsf_BoardPosition__init_(var$2, var$3), dcgbsf_TileType_NORMAL, cceg_Colors_random());
@@ -23743,6 +23743,58 @@ cceg_Colors__clinit_ = () => {
     cceg_Colors_TWILIGHT_BLUE = var$2[61];
     cceg_Colors_CHARCOAL = var$2[62];
     cceg_Colors_TRANSPARENT = cbgg_Color__init_0(1.0, 1.0, 1.0, 0.0);
+};
+function dcgbsf_BoardPosition() {
+    let a = this; jl_Record.call(a);
+    a.$x1 = 0;
+    a.$y1 = 0;
+}
+let dcgbsf_BoardPosition__init_0 = ($this, $x, $y) => {
+    if (!($x >= 0 && $x < 8))
+        ccee_ThrowError_indexOutOfBounds($x);
+    if (!($y >= 0 && $y < 8))
+        ccee_ThrowError_indexOutOfBounds($y);
+    $this.$x1 = $x;
+    $this.$y1 = $y;
+},
+dcgbsf_BoardPosition__init_ = (var_0, var_1) => {
+    let var_2 = new dcgbsf_BoardPosition();
+    dcgbsf_BoardPosition__init_0(var_2, var_0, var_1);
+    return var_2;
+},
+dcgbsf_BoardPosition_toString = $this => {
+    let var$1, var$2, var$3, var$4, var$5;
+    var$1 = new jl_StringBuilder;
+    var$2 = $rt_s(576);
+    var$1.$buffer = $rt_createCharArray(var$2.$nativeString.length);
+    var$3 = 0;
+    var$4 = $rt_s(576);
+    while (true) {
+        var$5 = var$1.$buffer.data;
+        if (var$3 >= var$5.length)
+            break;
+        var$5[var$3] = jl_String_charAt(var$4, var$3);
+        var$3 = var$3 + 1 | 0;
+    }
+    var$1.$length1 = var$2.$nativeString.length;
+    jl_AbstractStringBuilder_append0(var$1, $rt_s(577));
+    var$2 = jl_StringBuilder_append0(var$1, $this.$x1);
+    jl_AbstractStringBuilder_append0(var$2, $rt_s(578));
+    var$2 = jl_StringBuilder_append0(var$2, $this.$y1);
+    jl_AbstractStringBuilder_append0(var$2, $rt_s(579));
+    return jl_AbstractStringBuilder_toString(var$2);
+},
+dcgbsf_TileType = $rt_classWithoutFields(jl_Enum),
+dcgbsf_TileType_NORMAL = null,
+dcgbsf_TileType_$VALUES = null,
+dcgbsf_TileType__clinit_ = () => {
+    let var$1, var$2;
+    var$1 = new dcgbsf_TileType;
+    jl_Enum__init_(var$1, $rt_s(580), 0);
+    dcgbsf_TileType_NORMAL = var$1;
+    var$2 = $rt_createArray(dcgbsf_TileType, 1);
+    var$2.data[0] = var$1;
+    dcgbsf_TileType_$VALUES = var$2;
 },
 cbggg_PixmapNativeInterface = $rt_classWithoutFields(0);
 function cbgg_Pixmap() {
@@ -23777,7 +23829,7 @@ let cbgg_Pixmap__init_0 = ($this, $width, $height, $format) => {
             $format = jl_String_valueOf($format);
             var$6 = new jl_StringBuilder;
             jl_AbstractStringBuilder__init_(var$6);
-            jl_StringBuilder_append(jl_StringBuilder_append(var$6, $rt_s(576)), $format);
+            jl_StringBuilder_append(jl_StringBuilder_append(var$6, $rt_s(581)), $format);
             jl_RuntimeException__init_(var$4, jl_AbstractStringBuilder_toString(var$6));
             $rt_throw(var$4);
         }
@@ -23842,7 +23894,7 @@ cbgg_Pixmap_dispose = $this => {
     let var$1;
     if ($this.$disposed) {
         var$1 = new cbgu_GdxRuntimeException;
-        jl_RuntimeException__init_(var$1, $rt_s(577));
+        jl_RuntimeException__init_(var$1, $rt_s(582));
         $rt_throw(var$1);
     }
     cbggg_Gdx2DPixmapNative_dispose($this.$nativePixmap.$nativePixmap0);
@@ -23874,7 +23926,7 @@ cbgg_Pixmap_getGLType = $this => {
                 var$2 = new cbgu_GdxRuntimeException;
                 var$3 = new jl_StringBuilder;
                 jl_AbstractStringBuilder__init_(var$3);
-                jl_StringBuilder_append0(jl_StringBuilder_append(var$3, $rt_s(578)), var$1);
+                jl_StringBuilder_append0(jl_StringBuilder_append(var$3, $rt_s(583)), var$1);
                 jl_RuntimeException__init_(var$2, jl_AbstractStringBuilder_toString(var$3));
                 $rt_throw(var$2);
         }
@@ -23903,7 +23955,7 @@ cbgg_Pixmap_getFormat = $this => {
             var$2 = new cbgu_GdxRuntimeException;
             var$3 = new jl_StringBuilder;
             jl_AbstractStringBuilder__init_(var$3);
-            jl_StringBuilder_append0(jl_StringBuilder_append(var$3, $rt_s(579)), var$1);
+            jl_StringBuilder_append0(jl_StringBuilder_append(var$3, $rt_s(584)), var$1);
             jl_RuntimeException__init_(var$2, jl_AbstractStringBuilder_toString(var$3));
             $rt_throw(var$2);
         }
@@ -23933,22 +23985,22 @@ cbgg_Pixmap$Format__clinit_ = () => {
     jl_Enum__init_(var$1, $rt_s(176), 0);
     cbgg_Pixmap$Format_Alpha = var$1;
     var$1 = new cbgg_Pixmap$Format;
-    jl_Enum__init_(var$1, $rt_s(580), 1);
+    jl_Enum__init_(var$1, $rt_s(585), 1);
     cbgg_Pixmap$Format_Intensity = var$1;
     var$1 = new cbgg_Pixmap$Format;
-    jl_Enum__init_(var$1, $rt_s(581), 2);
+    jl_Enum__init_(var$1, $rt_s(586), 2);
     cbgg_Pixmap$Format_LuminanceAlpha = var$1;
     var$1 = new cbgg_Pixmap$Format;
-    jl_Enum__init_(var$1, $rt_s(582), 3);
+    jl_Enum__init_(var$1, $rt_s(587), 3);
     cbgg_Pixmap$Format_RGB565 = var$1;
     var$1 = new cbgg_Pixmap$Format;
-    jl_Enum__init_(var$1, $rt_s(583), 4);
+    jl_Enum__init_(var$1, $rt_s(588), 4);
     cbgg_Pixmap$Format_RGBA4444 = var$1;
     var$1 = new cbgg_Pixmap$Format;
-    jl_Enum__init_(var$1, $rt_s(584), 5);
+    jl_Enum__init_(var$1, $rt_s(589), 5);
     cbgg_Pixmap$Format_RGB888 = var$1;
     var$1 = new cbgg_Pixmap$Format;
-    jl_Enum__init_(var$1, $rt_s(585), 6);
+    jl_Enum__init_(var$1, $rt_s(590), 6);
     cbgg_Pixmap$Format_RGBA8888 = var$1;
     var$2 = $rt_createArray(cbgg_Pixmap$Format, 7);
     var$3 = var$2.data;
@@ -23960,58 +24012,6 @@ cbgg_Pixmap$Format__clinit_ = () => {
     var$3[5] = cbgg_Pixmap$Format_RGB888;
     var$3[6] = var$1;
     cbgg_Pixmap$Format_$VALUES = var$2;
-};
-function dcgbsf_BoardPosition() {
-    let a = this; jl_Record.call(a);
-    a.$x1 = 0;
-    a.$y1 = 0;
-}
-let dcgbsf_BoardPosition__init_0 = ($this, $x, $y) => {
-    if (!($x >= 0 && $x < 8))
-        ccee_ThrowError_indexOutOfBounds($x);
-    if (!($y >= 0 && $y < 8))
-        ccee_ThrowError_indexOutOfBounds($y);
-    $this.$x1 = $x;
-    $this.$y1 = $y;
-},
-dcgbsf_BoardPosition__init_ = (var_0, var_1) => {
-    let var_2 = new dcgbsf_BoardPosition();
-    dcgbsf_BoardPosition__init_0(var_2, var_0, var_1);
-    return var_2;
-},
-dcgbsf_BoardPosition_toString = $this => {
-    let var$1, var$2, var$3, var$4, var$5;
-    var$1 = new jl_StringBuilder;
-    var$2 = $rt_s(586);
-    var$1.$buffer = $rt_createCharArray(var$2.$nativeString.length);
-    var$3 = 0;
-    var$4 = $rt_s(586);
-    while (true) {
-        var$5 = var$1.$buffer.data;
-        if (var$3 >= var$5.length)
-            break;
-        var$5[var$3] = jl_String_charAt(var$4, var$3);
-        var$3 = var$3 + 1 | 0;
-    }
-    var$1.$length1 = var$2.$nativeString.length;
-    jl_AbstractStringBuilder_append0(var$1, $rt_s(587));
-    var$2 = jl_StringBuilder_append0(var$1, $this.$x1);
-    jl_AbstractStringBuilder_append0(var$2, $rt_s(588));
-    var$2 = jl_StringBuilder_append0(var$2, $this.$y1);
-    jl_AbstractStringBuilder_append0(var$2, $rt_s(589));
-    return jl_AbstractStringBuilder_toString(var$2);
-},
-dcgbsf_TileType = $rt_classWithoutFields(jl_Enum),
-dcgbsf_TileType_NORMAL = null,
-dcgbsf_TileType_$VALUES = null,
-dcgbsf_TileType__clinit_ = () => {
-    let var$1, var$2;
-    var$1 = new dcgbsf_TileType;
-    jl_Enum__init_(var$1, $rt_s(590), 0);
-    dcgbsf_TileType_NORMAL = var$1;
-    var$2 = $rt_createArray(dcgbsf_TileType, 1);
-    var$2.data[0] = var$1;
-    dcgbsf_TileType_$VALUES = var$2;
 };
 function jnc_CodingErrorAction() {
     jl_Object.call(this);
@@ -24252,7 +24252,7 @@ let cbggg_Gdx2DPixmap_getGLInternalFormat = $this => {
                 var$2 = new cbgu_GdxRuntimeException;
                 var$3 = new jl_StringBuilder;
                 jl_AbstractStringBuilder__init_(var$3);
-                jl_StringBuilder_append0(jl_StringBuilder_append(var$3, $rt_s(578)), var$1);
+                jl_StringBuilder_append0(jl_StringBuilder_append(var$3, $rt_s(583)), var$1);
                 jl_RuntimeException__init_(var$2, jl_AbstractStringBuilder_toString(var$3));
                 $rt_throw(var$2);
         }
@@ -26734,11 +26734,11 @@ dcgbss_TileEmulator, 0, jl_Object, [], 4, 3, 0, 0, 0,
 dcgbsf_ShapeInfo, 0, jl_Record, [], 32772, 3, 0, 0, 0,
 dcgbsf_ShapeType, 0, jl_Enum, [], 12, 3, 0, 0, 0,
 cceg_Colors, 0, jl_Object, [], 0, 3, 0, cceg_Colors_$callClinit, 0,
+dcgbsf_BoardPosition, "BoardPosition", 33, jl_Record, [], 32772, 3, 0, 0, ["$toString", $rt_wrapFunction0(dcgbsf_BoardPosition_toString)],
+dcgbsf_TileType, 0, jl_Enum, [], 12, 3, 0, 0, 0,
 cbggg_PixmapNativeInterface, 0, jl_Object, [], 3, 3, 0, 0, 0,
 cbgg_Pixmap, 0, jl_Object, [cbgu_Disposable, cbggg_PixmapNativeInterface], 0, 3, 0, 0, 0,
-cbgg_Pixmap$Format, 0, jl_Enum, [], 12, 3, 0, 0, 0,
-dcgbsf_BoardPosition, "BoardPosition", 33, jl_Record, [], 32772, 3, 0, 0, ["$toString", $rt_wrapFunction0(dcgbsf_BoardPosition_toString)],
-dcgbsf_TileType, 0, jl_Enum, [], 12, 3, 0, 0, 0]);
+cbgg_Pixmap$Format, 0, jl_Enum, [], 12, 3, 0, 0, 0]);
 $rt_metadata([jnc_CodingErrorAction, 0, jl_Object, [], 0, 3, 0, 0, 0,
 jnc_CharsetEncoder, 0, jl_Object, [], 1, 3, 0, 0, 0,
 ji_IOException, 0, jl_Exception, [], 0, 3, 0, 0, 0,
@@ -26826,7 +26826,7 @@ $rt_stringPool(["Can\'t enter monitor from another thread synchronously", "Class
 "\' in shader", "No buffer allocated!", "IndexBufferObject cannot be used after it has been disposed.", "data must be a ByteBuffer or FloatBuffer", "New position ", " is outside of range [0;", "Capacity is negative: ", " is not set", " at ", "[ByteBuffer position=", ", limit=", ", capacity=", ", mark ", "BIG_ENDIAN", "LITTLE_ENDIAN", "Index ", "Asset download failed: ", "Asset download success: ", "This buffer is not allocated in linear memory and does not wrap native JS buffer", "icon/block_128_9.png", "size is too big !",
 "height or width is negative", "pos is ", "�", "Replacement preconditions do not hold", "UTF-8", "File is null, it does not exist: ", "File not found: ", " (", "Error reading file: ", "can\'t not handle type: ", "N_1x2", "N_2x1", "N_2x2", "L_SHAPE_1_1", "L_SHAPE_2_1", "L_SHAPE_3_1", "L_SHAPE_4_1", "L_SHAPE_1_2", "L_SHAPE_2_2", "L_SHAPE_3_2", "L_SHAPE_4_2", "T_SHAPE_1_1", "T_SHAPE_1_2", "T_SHAPE_2_1", "T_SHAPE_2_2", "I_4x1", "I_1x4", "Z_SHAPE", "O_3x3", "PLUS_3x3", "BIG_L_3x3_1", "BIG_L_3x3_2", "BIG_L_3x3_3",
 "BIG_L_3x3_4", "B_2x2_1", "B_2x2_2", "#F3EAC6", "#F6F1D3", "#DFDAD8", "#FFF2EF", "#FAD6D6", "#FFE2CC", "#FFDAC1", "#FCE1E4", "#F6CED8", "#F1C6D4", "#E6C0B3", "#D8BCC5", "#D2B1A3", "#C5B0A0", "#B6A29A", "#DECBAA", "#D3B88C", "#E0B75E", "#D9A24E", "#A16B47", "#B17B5C", "#8F5A3C", "#6C3E2A", "#554C4A", "#A82E33", "#FF6F61", "#A9B8D3", "#C1E5F2", "#B0D0D3", "#A1C6C8", "#B2DFE4", "#A2D8D0", "#ACCFCB", "#CDEDEA", "#AED9E0", "#93A8AC", "#3D4D5C", "#5B6C7D", "#3A5A8A", "#1E90FF", "#00BFFF", "#D6D6D6", "#C0C0C0", "#A0A0A0",
-"#A8A8A8", "#B4B8B1", "#A3B1A8", "#7E9485", "#597B71", "#449F7F", "#66CDAA", "#83C8B0", "#A8D5BA", "#D1E2B8", "#D4E8B3", "#BCCCE0", "#EADCF6", "#C9C2E1", "#BFA2CC", "#D8B7DD", "#6A4C8C", "#8C8E9F", "#4B3F3F", "Unknown Format: ", "Pixmap already disposed!", "unknown format: ", "Unknown Gdx2DPixmap Format: ", "Intensity", "LuminanceAlpha", "RGB565", "RGBA4444", "RGB888", "RGBA8888", "BoardPosition[", "x=", ", y=", "]", "NORMAL", "IGNORE", "REPLACE", "REPORT", "Action must be non-null", " is null", "Index out of range: ",
+"#A8A8A8", "#B4B8B1", "#A3B1A8", "#7E9485", "#597B71", "#449F7F", "#66CDAA", "#83C8B0", "#A8D5BA", "#D1E2B8", "#D4E8B3", "#BCCCE0", "#EADCF6", "#C9C2E1", "#BFA2CC", "#D8B7DD", "#6A4C8C", "#8C8E9F", "#4B3F3F", "BoardPosition[", "x=", ", y=", "]", "NORMAL", "Unknown Format: ", "Pixmap already disposed!", "unknown format: ", "Unknown Gdx2DPixmap Format: ", "Intensity", "LuminanceAlpha", "RGB565", "RGBA4444", "RGB888", "RGBA8888", "IGNORE", "REPLACE", "REPORT", "Action must be non-null", " is null", "Index out of range: ",
 "None", "SourceOver", "NearestNeighbour", "BiLinear", "prepare() must not be called on a PixmapTextureData instance as it is already prepared.", "#", "Invalid hex color format: ", "Can only free direct buffer", "Nearest", "Linear", "MipMap", "MipMapNearestNearest", "MipMapLinearNearest", "MipMapNearestLinear", "MipMapLinearLinear", "MirroredRepeat", "ClampToEdge", "Repeat", "Malformed input of length ", "Unmappable characters of length ", "Classpath", "Internal", "External", "Absolute", "Local", "FileType \'",
 "\' Not supported in web backend", "Error writing file: ", "Pixmap", "Custom", "texture width and height must be square when using mipmapping.", "newAction must be non-null", "Game Over: board is full.", "ROWS", "COLS", "IndexedDB Error removing file: "]);
 jl_String.prototype.toString = function() {
