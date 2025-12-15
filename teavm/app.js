@@ -3354,8 +3354,8 @@ dcgbt_TeaVMLauncher__clinit_ = () => {
     cbgg_TextureData$TextureDataType__clinit_();
     cbggg_MipMapGenerator__clinit_();
     jl_Byte__clinit_();
-    dcgbsf_TileType__clinit_();
     dcgbsf_ShapeType__clinit_();
+    dcgbsf_TileType__clinit_();
     jnc_CodingErrorAction__clinit_();
     jnc_CoderResult__clinit_();
     cbgm_MathUtils$Sin__clinit_();
@@ -23550,27 +23550,13 @@ jn_CharBuffer_array = $this => {
     jl_Exception__init_(var$2);
     $rt_throw(var$2);
 };
-function dcgbsf_TileInfo() {
+function dcgbsf_ShapeInfo() {
     let a = this; jl_Record.call(a);
-    a.$pos1 = null;
-    a.$type9 = null;
-    a.$color3 = null;
+    a.$index3 = 0;
+    a.$type1 = null;
+    a.$color0 = null;
 }
-let dcgbsf_TileInfo__init_0 = ($this, $pos, $type, $color) => {
-    if ($color === null)
-        ccee_ThrowError_nullPointer($color);
-    if ($type === null)
-        ccee_ThrowError_nullPointer($type);
-    $this.$pos1 = $pos;
-    $this.$type9 = $type;
-    $this.$color3 = $color;
-},
-dcgbsf_TileInfo__init_ = (var_0, var_1, var_2) => {
-    let var_3 = new dcgbsf_TileInfo();
-    dcgbsf_TileInfo__init_0(var_3, var_0, var_1, var_2);
-    return var_3;
-},
-cceu_GraphicUtils = $rt_classWithoutFields(),
+let cceu_GraphicUtils = $rt_classWithoutFields(),
 cceu_GraphicUtils_loadAndAdjustPixmap = ($internalPath, $width, $height) => {
     let $fh, $src, $resized, var$7, var$8, var$9, var$10, var$11, $$je;
     if ($internalPath === null)
@@ -23655,12 +23641,26 @@ cceu_GraphicUtils_setBatchToWhite = () => {
     cce_GameInstance_$callClinit();
     cbggg_SpriteBatch_setColor(cce_GameInstance_objectBatch, cbgg_Color_WHITE);
 };
-function dcgbsf_ShapeInfo() {
+function dcgbsf_TileInfo() {
     let a = this; jl_Record.call(a);
-    a.$index3 = 0;
-    a.$type1 = null;
-    a.$color0 = null;
+    a.$pos1 = null;
+    a.$type9 = null;
+    a.$color3 = null;
 }
+let dcgbsf_TileInfo__init_0 = ($this, $pos, $type, $color) => {
+    if ($color === null)
+        ccee_ThrowError_nullPointer($color);
+    if ($type === null)
+        ccee_ThrowError_nullPointer($type);
+    $this.$pos1 = $pos;
+    $this.$type9 = $type;
+    $this.$color3 = $color;
+},
+dcgbsf_TileInfo__init_ = (var_0, var_1, var_2) => {
+    let var_3 = new dcgbsf_TileInfo();
+    dcgbsf_TileInfo__init_0(var_3, var_0, var_1, var_2);
+    return var_3;
+};
 function dcgbsf_BoardPosition() {
     let a = this; jl_Record.call(a);
     a.$x1 = 0;
@@ -23688,18 +23688,6 @@ dcgbsf_BoardPosition_toString = $this => {
     var$2 = jl_StringBuilder_append0(var$2, $this.$y1);
     jl_AbstractStringBuilder_append0(var$2, $rt_s(553));
     return jl_AbstractStringBuilder_toString(var$2);
-},
-dcgbsf_TileType = $rt_classWithoutFields(jl_Enum),
-dcgbsf_TileType_NORMAL = null,
-dcgbsf_TileType_$VALUES = null,
-dcgbsf_TileType__clinit_ = () => {
-    let var$1, var$2;
-    var$1 = new dcgbsf_TileType;
-    jl_Enum__init_(var$1, $rt_s(561), 0);
-    dcgbsf_TileType_NORMAL = var$1;
-    var$2 = $rt_createArray(dcgbsf_TileType, 1);
-    var$2.data[0] = var$1;
-    dcgbsf_TileType_$VALUES = var$2;
 },
 cceu_ScreenUtils = $rt_classWithoutFields(cceu_Utils),
 dcgbss_TileEmulator = $rt_classWithoutFields(),
@@ -24034,7 +24022,7 @@ dcgbsf_ShapeType_getData = $this => {
         var$4 = new jl_IllegalStateException;
         var$5 = jl_String_valueOf($this);
         var$6 = jl_StringBuilder__init_();
-        jl_StringBuilder_append(jl_StringBuilder_append(var$6, $rt_s(562)), var$5);
+        jl_StringBuilder_append(jl_StringBuilder_append(var$6, $rt_s(561)), var$5);
         jl_IllegalStateException__init_(var$4, jl_StringBuilder_toString(var$6));
         $rt_throw(var$4);
     }
@@ -24073,33 +24061,45 @@ dcgbsf_ShapeType_$values = () => {
     return var$1;
 },
 dcgbsf_ShapeType__clinit_ = () => {
-    dcgbsf_ShapeType_N_1x2 = dcgbsf_ShapeType__init_($rt_s(563), 0, 1, 2, 2, 10);
-    dcgbsf_ShapeType_N_2x1 = dcgbsf_ShapeType__init_($rt_s(564), 1, 2, 1, 2, 10);
-    dcgbsf_ShapeType_N_2x2 = dcgbsf_ShapeType__init_($rt_s(565), 2, 2, 2, 4, 10);
-    dcgbsf_ShapeType_L_SHAPE_1_1 = dcgbsf_ShapeType__init_($rt_s(566), 3, 2, 3, 4, 3);
-    dcgbsf_ShapeType_L_SHAPE_2_1 = dcgbsf_ShapeType__init_($rt_s(567), 4, 2, 3, 4, 3);
-    dcgbsf_ShapeType_L_SHAPE_3_1 = dcgbsf_ShapeType__init_($rt_s(568), 5, 2, 3, 4, 3);
-    dcgbsf_ShapeType_L_SHAPE_4_1 = dcgbsf_ShapeType__init_($rt_s(569), 6, 2, 3, 4, 3);
-    dcgbsf_ShapeType_L_SHAPE_1_2 = dcgbsf_ShapeType__init_($rt_s(570), 7, 3, 2, 4, 3);
-    dcgbsf_ShapeType_L_SHAPE_2_2 = dcgbsf_ShapeType__init_($rt_s(571), 8, 3, 2, 4, 3);
-    dcgbsf_ShapeType_L_SHAPE_3_2 = dcgbsf_ShapeType__init_($rt_s(572), 9, 3, 2, 4, 3);
-    dcgbsf_ShapeType_L_SHAPE_4_2 = dcgbsf_ShapeType__init_($rt_s(573), 10, 3, 2, 4, 3);
-    dcgbsf_ShapeType_T_SHAPE_1_1 = dcgbsf_ShapeType__init_($rt_s(574), 11, 3, 2, 4, 3);
-    dcgbsf_ShapeType_T_SHAPE_1_2 = dcgbsf_ShapeType__init_($rt_s(575), 12, 3, 2, 4, 3);
-    dcgbsf_ShapeType_T_SHAPE_2_1 = dcgbsf_ShapeType__init_($rt_s(576), 13, 2, 3, 4, 3);
-    dcgbsf_ShapeType_T_SHAPE_2_2 = dcgbsf_ShapeType__init_($rt_s(577), 14, 2, 3, 4, 3);
-    dcgbsf_ShapeType_I_4x1 = dcgbsf_ShapeType__init_($rt_s(578), 15, 4, 1, 4, 7);
-    dcgbsf_ShapeType_I_1x4 = dcgbsf_ShapeType__init_($rt_s(579), 16, 1, 4, 4, 7);
-    dcgbsf_ShapeType_Z_SHAPE = dcgbsf_ShapeType__init_($rt_s(580), 17, 3, 2, 4, 7);
-    dcgbsf_ShapeType_O_3x3 = dcgbsf_ShapeType__init_($rt_s(581), 18, 3, 3, 9, 5);
-    dcgbsf_ShapeType_PLUS_3x3 = dcgbsf_ShapeType__init_($rt_s(582), 19, 3, 3, 5, 2);
-    dcgbsf_ShapeType_BIG_L_3x3_1 = dcgbsf_ShapeType__init_($rt_s(583), 20, 3, 3, 5, 2);
-    dcgbsf_ShapeType_BIG_L_3x3_2 = dcgbsf_ShapeType__init_($rt_s(584), 21, 3, 3, 5, 2);
-    dcgbsf_ShapeType_BIG_L_3x3_3 = dcgbsf_ShapeType__init_($rt_s(585), 22, 3, 3, 5, 2);
-    dcgbsf_ShapeType_BIG_L_3x3_4 = dcgbsf_ShapeType__init_($rt_s(586), 23, 3, 3, 5, 2);
-    dcgbsf_ShapeType_B_2x2_1 = dcgbsf_ShapeType__init_($rt_s(587), 24, 2, 2, 2, 1);
-    dcgbsf_ShapeType_B_2x2_2 = dcgbsf_ShapeType__init_($rt_s(588), 25, 2, 2, 2, 1);
+    dcgbsf_ShapeType_N_1x2 = dcgbsf_ShapeType__init_($rt_s(562), 0, 1, 2, 2, 10);
+    dcgbsf_ShapeType_N_2x1 = dcgbsf_ShapeType__init_($rt_s(563), 1, 2, 1, 2, 10);
+    dcgbsf_ShapeType_N_2x2 = dcgbsf_ShapeType__init_($rt_s(564), 2, 2, 2, 4, 10);
+    dcgbsf_ShapeType_L_SHAPE_1_1 = dcgbsf_ShapeType__init_($rt_s(565), 3, 2, 3, 4, 3);
+    dcgbsf_ShapeType_L_SHAPE_2_1 = dcgbsf_ShapeType__init_($rt_s(566), 4, 2, 3, 4, 3);
+    dcgbsf_ShapeType_L_SHAPE_3_1 = dcgbsf_ShapeType__init_($rt_s(567), 5, 2, 3, 4, 3);
+    dcgbsf_ShapeType_L_SHAPE_4_1 = dcgbsf_ShapeType__init_($rt_s(568), 6, 2, 3, 4, 3);
+    dcgbsf_ShapeType_L_SHAPE_1_2 = dcgbsf_ShapeType__init_($rt_s(569), 7, 3, 2, 4, 3);
+    dcgbsf_ShapeType_L_SHAPE_2_2 = dcgbsf_ShapeType__init_($rt_s(570), 8, 3, 2, 4, 3);
+    dcgbsf_ShapeType_L_SHAPE_3_2 = dcgbsf_ShapeType__init_($rt_s(571), 9, 3, 2, 4, 3);
+    dcgbsf_ShapeType_L_SHAPE_4_2 = dcgbsf_ShapeType__init_($rt_s(572), 10, 3, 2, 4, 3);
+    dcgbsf_ShapeType_T_SHAPE_1_1 = dcgbsf_ShapeType__init_($rt_s(573), 11, 3, 2, 4, 3);
+    dcgbsf_ShapeType_T_SHAPE_1_2 = dcgbsf_ShapeType__init_($rt_s(574), 12, 3, 2, 4, 3);
+    dcgbsf_ShapeType_T_SHAPE_2_1 = dcgbsf_ShapeType__init_($rt_s(575), 13, 2, 3, 4, 3);
+    dcgbsf_ShapeType_T_SHAPE_2_2 = dcgbsf_ShapeType__init_($rt_s(576), 14, 2, 3, 4, 3);
+    dcgbsf_ShapeType_I_4x1 = dcgbsf_ShapeType__init_($rt_s(577), 15, 4, 1, 4, 7);
+    dcgbsf_ShapeType_I_1x4 = dcgbsf_ShapeType__init_($rt_s(578), 16, 1, 4, 4, 7);
+    dcgbsf_ShapeType_Z_SHAPE = dcgbsf_ShapeType__init_($rt_s(579), 17, 3, 2, 4, 7);
+    dcgbsf_ShapeType_O_3x3 = dcgbsf_ShapeType__init_($rt_s(580), 18, 3, 3, 9, 5);
+    dcgbsf_ShapeType_PLUS_3x3 = dcgbsf_ShapeType__init_($rt_s(581), 19, 3, 3, 5, 2);
+    dcgbsf_ShapeType_BIG_L_3x3_1 = dcgbsf_ShapeType__init_($rt_s(582), 20, 3, 3, 5, 2);
+    dcgbsf_ShapeType_BIG_L_3x3_2 = dcgbsf_ShapeType__init_($rt_s(583), 21, 3, 3, 5, 2);
+    dcgbsf_ShapeType_BIG_L_3x3_3 = dcgbsf_ShapeType__init_($rt_s(584), 22, 3, 3, 5, 2);
+    dcgbsf_ShapeType_BIG_L_3x3_4 = dcgbsf_ShapeType__init_($rt_s(585), 23, 3, 3, 5, 2);
+    dcgbsf_ShapeType_B_2x2_1 = dcgbsf_ShapeType__init_($rt_s(586), 24, 2, 2, 2, 1);
+    dcgbsf_ShapeType_B_2x2_2 = dcgbsf_ShapeType__init_($rt_s(587), 25, 2, 2, 2, 1);
     dcgbsf_ShapeType_$VALUES = dcgbsf_ShapeType_$values();
+},
+dcgbsf_TileType = $rt_classWithoutFields(jl_Enum),
+dcgbsf_TileType_NORMAL = null,
+dcgbsf_TileType_$VALUES = null,
+dcgbsf_TileType__clinit_ = () => {
+    let var$1, var$2;
+    var$1 = new dcgbsf_TileType;
+    jl_Enum__init_(var$1, $rt_s(588), 0);
+    dcgbsf_TileType_NORMAL = var$1;
+    var$2 = $rt_createArray(dcgbsf_TileType, 1);
+    var$2.data[0] = var$1;
+    dcgbsf_TileType_$VALUES = var$2;
 },
 cbggg_PixmapNativeInterface = $rt_classWithoutFields(0);
 function cbgg_Pixmap() {
@@ -24758,19 +24758,8 @@ jnc_CoderResult_throwException = $this => {
 jnc_CoderResult__clinit_ = () => {
     jnc_CoderResult_UNDERFLOW = jnc_CoderResult__init_(0, 0);
     jnc_CoderResult_OVERFLOW = jnc_CoderResult__init_(1, 0);
-};
-function cbg_Graphics$BufferFormat() {
-    let a = this; jl_Object.call(a);
-    a.$r0 = 0;
-    a.$g0 = 0;
-    a.$b0 = 0;
-    a.$a0 = 0;
-    a.$depth = 0;
-    a.$stencil0 = 0;
-    a.$samples = 0;
-    a.$coverageSampling = 0;
-}
-let dcgbss_SolutionFinder = $rt_classWithoutFields(),
+},
+dcgbss_SolutionFinder = $rt_classWithoutFields(),
 dcgbss_SolutionFinder_isPlacableOn = ($shape, $pos) => {
     let $data, $rows, $cols, $r, $c, $boardX, $boardY;
     $data = (dcgbsf_ShapeType_getData($shape.$info.$type1)).data;
@@ -25036,6 +25025,17 @@ dcgbss_StateManager__clinit_ = () => {
     dcgbss_StateManager_shockAnimation = var$1;
     ccec_ObjectManager_add(var$1);
 };
+function cbg_Graphics$BufferFormat() {
+    let a = this; jl_Object.call(a);
+    a.$r0 = 0;
+    a.$g0 = 0;
+    a.$b0 = 0;
+    a.$a0 = 0;
+    a.$depth = 0;
+    a.$stencil0 = 0;
+    a.$samples = 0;
+    a.$coverageSampling = 0;
+}
 function cbggg_Gdx2DPixmapNative() {
     let a = this; jl_Object.call(a);
     a.$basePtr = 0;
@@ -25202,15 +25202,6 @@ dcgbsf_ShapeType$1__clinit_ = () => {
     var$2[dcgbsf_ShapeType_B_2x2_1.$ordinal0] = 25;
     var$2[dcgbsf_ShapeType_B_2x2_2.$ordinal0] = 26;
 },
-cbgf_FileHandle = $rt_classWithoutFields(),
-cbgf_FileHandle_estimateLength = $this => {
-    let var$1, $length;
-    var$1 = $this;
-    $length = Long_lo((cgxgbtf_MemoryFileStorage_length(cgxgbt_TeaFiles_getFileDB(var$1.$teaFiles, var$1.$type0), var$1)));
-    if (!$length)
-        $length = 512;
-    return $length;
-},
 ccea_Animation = $rt_classWithoutFields(0);
 function ccea_ShockAnimation() {
     let a = this; cceo_GameObject.call(a);
@@ -25265,6 +25256,15 @@ let ccea_ShockAnimation_update = ($this, $delta) => {
             return;
         }
     }
+},
+cbgf_FileHandle = $rt_classWithoutFields(),
+cbgf_FileHandle_estimateLength = $this => {
+    let var$1, $length;
+    var$1 = $this;
+    $length = Long_lo((cgxgbtf_MemoryFileStorage_length(cgxgbt_TeaFiles_getFileDB(var$1.$teaFiles, var$1.$type0), var$1)));
+    if (!$length)
+        $length = 512;
+    return $length;
 };
 function cbgg_Texture$TextureFilter() {
     jl_Enum.call(this);
@@ -27002,14 +27002,14 @@ cbgu_ScreenUtils, 0, jl_Object, [], 4, 3, 0, 0, 0,
 dcgbsf_GlowBorderInfo, "GlowBorderInfo", 33, jl_Record, [], 32772, 3, 0, 0, ["$toString", $rt_wrapFunction0(dcgbsf_GlowBorderInfo_toString)],
 jl_Readable, 0, jl_Object, [], 3, 3, 0, 0, 0,
 jn_CharBuffer, 0, jn_Buffer, [jl_Comparable, jl_Appendable, jl_CharSequence, jl_Readable], 1, 3, 0, 0, 0,
-dcgbsf_TileInfo, 0, jl_Record, [], 32772, 3, 0, 0, 0,
-cceu_GraphicUtils, 0, jl_Object, [], 4, 3, 0, 0, 0,
 dcgbsf_ShapeInfo, 0, jl_Record, [], 32772, 3, 0, 0, 0,
+cceu_GraphicUtils, 0, jl_Object, [], 4, 3, 0, 0, 0,
+dcgbsf_TileInfo, 0, jl_Record, [], 32772, 3, 0, 0, 0,
 dcgbsf_BoardPosition, "BoardPosition", 33, jl_Record, [], 32772, 3, 0, 0, ["$toString", $rt_wrapFunction0(dcgbsf_BoardPosition_toString)],
+cceu_ScreenUtils, 0, cceu_Utils, [], 4, 3, 0, 0, 0,
+dcgbss_TileEmulator, 0, jl_Object, [], 4, 3, 0, 0, 0]);
+$rt_metadata([dcgbsf_ShapeType, 0, jl_Enum, [], 12, 3, 0, 0, 0,
 dcgbsf_TileType, 0, jl_Enum, [], 12, 3, 0, 0, 0,
-cceu_ScreenUtils, 0, cceu_Utils, [], 4, 3, 0, 0, 0]);
-$rt_metadata([dcgbss_TileEmulator, 0, jl_Object, [], 4, 3, 0, 0, 0,
-dcgbsf_ShapeType, 0, jl_Enum, [], 12, 3, 0, 0, 0,
 cbggg_PixmapNativeInterface, 0, jl_Object, [], 3, 3, 0, 0, 0,
 cbgg_Pixmap, 0, jl_Object, [cbgu_Disposable, cbggg_PixmapNativeInterface], 0, 3, 0, 0, 0,
 cbgg_Pixmap$Format, 0, jl_Enum, [], 12, 3, 0, 0, 0,
@@ -27031,15 +27031,15 @@ cbggg_PixmapTextureData, "PixmapTextureData", 13, jl_Object, [cbgg_TextureData],
 jn_CharBufferImpl, 0, jn_CharBuffer, [], 1, 0, 0, 0, 0,
 jn_CharBufferOverTypedArray, 0, jn_CharBufferImpl, [jn_ArrayBufferViewProvider], 0, 0, 0, 0, ["$capacityImpl", $rt_wrapFunction0(jn_CharBufferOverTypedArray_capacityImpl)],
 jnc_CoderResult, 0, jl_Object, [], 0, 3, 0, 0, 0,
-cbg_Graphics$BufferFormat, 0, jl_Object, [], 0, 3, 0, 0, 0,
 dcgbss_SolutionFinder, 0, jl_Object, [], 4, 3, 0, 0, 0,
 dcgbss_StateManager, 0, jl_Object, [], 4, 3, 0, dcgbss_StateManager_$callClinit, 0,
+cbg_Graphics$BufferFormat, 0, jl_Object, [], 0, 3, 0, 0, 0,
 cbggg_Gdx2DPixmapNative, 0, jl_Object, [cbgu_Disposable], 0, 3, 0, 0, 0,
 jnc_CoderMalfunctionError, "CoderMalfunctionError", 25, jl_Error, [], 0, 3, 0, 0, 0,
 dcgbsf_ShapeType$1, 0, jl_Object, [], 32, 0, 0, dcgbsf_ShapeType$1_$callClinit, 0,
-cbgf_FileHandle, 0, jl_Object, [], 0, 3, 0, 0, 0,
 ccea_Animation, 0, jl_Object, [], 3, 3, 0, 0, 0,
 ccea_ShockAnimation, "ShockAnimation", 19, cceo_GameObject, [ccea_Animation], 0, 3, 0, 0, ["$update0", $rt_wrapFunction1(ccea_ShockAnimation_update)],
+cbgf_FileHandle, 0, jl_Object, [], 0, 3, 0, 0, 0,
 cbgg_Texture$TextureFilter, 0, jl_Enum, [], 12, 3, 0, 0, 0,
 cbgg_Texture$TextureWrap, 0, jl_Enum, [], 12, 3, 0, 0, 0,
 jnc_BufferUnderflowException, "BufferUnderflowException", 25, jl_RuntimeException, [], 0, 3, 0, 0, 0,
@@ -27098,10 +27098,10 @@ $rt_stringPool(["Can\'t enter monitor from another thread synchronously", "Class
 "Error compiling shader: ", "SpriteBatch.end must be called before begin.", "SpriteBatch.begin must be called before end.", "SpriteBatch.begin must be called before draw.", "Mesh attempting to access memory outside of the index buffer (count: ", ", offset: ", ", max: ", ")", "u_projTrans", "u_texture", "VertexArray", "VertexBufferObject", "VertexBufferObjectSubData", "VertexBufferObjectWithVAO", "Fragment shader:\n", "Vertex shader\n", "An attempted fetch uniform from uncompiled shader \n", "No uniform with name \'",
 "\' in shader", "No buffer allocated!", "IndexBufferObject cannot be used after it has been disposed.", "data must be a ByteBuffer or FloatBuffer", "New position ", " is outside of range [0;", "Capacity is negative: ", " is not set", " at ", "[ByteBuffer position=", ", limit=", ", capacity=", ", mark ", "BIG_ENDIAN", "LITTLE_ENDIAN", "Index ", "Asset download failed: ", "Asset download success: ", "#F3EAC6", "#F6F1D3", "#DFDAD8", "#FFF2EF", "#FAD6D6", "#FFE2CC", "#FFDAC1", "#FCE1E4", "#F6CED8", "#F1C6D4", "#E6C0B3",
 "#D8BCC5", "#D2B1A3", "#C5B0A0", "#B6A29A", "#DECBAA", "#D3B88C", "#E0B75E", "#D9A24E", "#A16B47", "#B17B5C", "#8F5A3C", "#6C3E2A", "#554C4A", "#A82E33", "#FF6F61", "#A9B8D3", "#C1E5F2", "#B0D0D3", "#A1C6C8", "#B2DFE4", "#A2D8D0", "#ACCFCB", "#CDEDEA", "#AED9E0", "#93A8AC", "#3D4D5C", "#5B6C7D", "#3A5A8A", "#1E90FF", "#00BFFF", "#D6D6D6", "#C0C0C0", "#A0A0A0", "#A8A8A8", "#B4B8B1", "#A3B1A8", "#7E9485", "#597B71", "#449F7F", "#66CDAA", "#83C8B0", "#A8D5BA", "#D1E2B8", "#D4E8B3", "#BCCCE0", "#EADCF6", "#C9C2E1",
-"#BFA2CC", "#D8B7DD", "#6A4C8C", "#8C8E9F", "#4B3F3F", "This buffer is not allocated in linear memory and does not wrap native JS buffer", "#", "Invalid hex color format: ", "icon/block_128_9.png", "ROWS", "COLS", "size is too big !", "height or width is negative", "pos is ", "�", "Replacement preconditions do not hold", "UTF-8", "GlowBorderInfo[", "type=", ", unit=", ", color=", "]", "File is null, it does not exist: ", "File not found: ", " (", "Error reading file: ", "BoardPosition[", "x=", ", y=", "NORMAL",
-"can\'t not handle type: ", "N_1x2", "N_2x1", "N_2x2", "L_SHAPE_1_1", "L_SHAPE_2_1", "L_SHAPE_3_1", "L_SHAPE_4_1", "L_SHAPE_1_2", "L_SHAPE_2_2", "L_SHAPE_3_2", "L_SHAPE_4_2", "T_SHAPE_1_1", "T_SHAPE_1_2", "T_SHAPE_2_1", "T_SHAPE_2_2", "I_4x1", "I_1x4", "Z_SHAPE", "O_3x3", "PLUS_3x3", "BIG_L_3x3_1", "BIG_L_3x3_2", "BIG_L_3x3_3", "BIG_L_3x3_4", "B_2x2_1", "B_2x2_2", "Unknown Format: ", "Pixmap already disposed!", "unknown format: ", "Unknown Gdx2DPixmap Format: ", "Intensity", "LuminanceAlpha", "RGB565", "RGBA4444",
-"RGB888", "RGBA8888", "IGNORE", "REPLACE", "REPORT", "Action must be non-null", " is null", "Index out of range: ", "None", "SourceOver", "NearestNeighbour", "BiLinear", "prepare() must not be called on a PixmapTextureData instance as it is already prepared.", "Game Over: board is full.", "Can only free direct buffer", "Nearest", "Linear", "MipMap", "MipMapNearestNearest", "MipMapLinearNearest", "MipMapNearestLinear", "MipMapLinearLinear", "MirroredRepeat", "ClampToEdge", "Repeat", "Malformed input of length ",
-"Unmappable characters of length ", "Classpath", "Internal", "External", "Absolute", "Local", "FileType \'", "\' Not supported in web backend", "Error writing file: ", "Pixmap", "Custom", "texture width and height must be square when using mipmapping.", "newAction must be non-null", "IndexedDB Error removing file: "]);
+"#BFA2CC", "#D8B7DD", "#6A4C8C", "#8C8E9F", "#4B3F3F", "This buffer is not allocated in linear memory and does not wrap native JS buffer", "#", "Invalid hex color format: ", "icon/block_128_9.png", "ROWS", "COLS", "size is too big !", "height or width is negative", "pos is ", "�", "Replacement preconditions do not hold", "UTF-8", "GlowBorderInfo[", "type=", ", unit=", ", color=", "]", "File is null, it does not exist: ", "File not found: ", " (", "Error reading file: ", "BoardPosition[", "x=", ", y=", "can\'t not handle type: ",
+"N_1x2", "N_2x1", "N_2x2", "L_SHAPE_1_1", "L_SHAPE_2_1", "L_SHAPE_3_1", "L_SHAPE_4_1", "L_SHAPE_1_2", "L_SHAPE_2_2", "L_SHAPE_3_2", "L_SHAPE_4_2", "T_SHAPE_1_1", "T_SHAPE_1_2", "T_SHAPE_2_1", "T_SHAPE_2_2", "I_4x1", "I_1x4", "Z_SHAPE", "O_3x3", "PLUS_3x3", "BIG_L_3x3_1", "BIG_L_3x3_2", "BIG_L_3x3_3", "BIG_L_3x3_4", "B_2x2_1", "B_2x2_2", "NORMAL", "Unknown Format: ", "Pixmap already disposed!", "unknown format: ", "Unknown Gdx2DPixmap Format: ", "Intensity", "LuminanceAlpha", "RGB565", "RGBA4444", "RGB888", "RGBA8888",
+"IGNORE", "REPLACE", "REPORT", "Action must be non-null", " is null", "Index out of range: ", "None", "SourceOver", "NearestNeighbour", "BiLinear", "prepare() must not be called on a PixmapTextureData instance as it is already prepared.", "Game Over: board is full.", "Can only free direct buffer", "Nearest", "Linear", "MipMap", "MipMapNearestNearest", "MipMapLinearNearest", "MipMapNearestLinear", "MipMapLinearLinear", "MirroredRepeat", "ClampToEdge", "Repeat", "Malformed input of length ", "Unmappable characters of length ",
+"Classpath", "Internal", "External", "Absolute", "Local", "FileType \'", "\' Not supported in web backend", "Error writing file: ", "Pixmap", "Custom", "texture width and height must be square when using mipmapping.", "newAction must be non-null", "IndexedDB Error removing file: "]);
 jl_String.prototype.toString = function() {
     return $rt_ustr(this);
 };
